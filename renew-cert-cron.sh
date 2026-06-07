@@ -13,4 +13,4 @@ ___
 #sudo chmod +x /usr/local/bin/renew-cert-cron.sh
 #sudo crontab -e
 # add line to run twice daily
-0 */12 * * * /usr/local/bin/renew-cert-cron.sh >> /var/log/certbot-renew.log 2>&1
+#0 */12 * * * /usr/local/bin/renew-cert-cron.sh >> /var/log/certbot-renew.log 2>&1
