@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>📊 IT Monitor</title>
+<meta charset="utf-8">
+<style>
+body{background:#0a0a0a;color:#00ffff;font-family:'Courier New',monospace;padding:30px}
+h1{text-align:center;text-shadow:0 0 20px #00ffff;margin-bottom:5px}
+.sub{text-align:center;color:#555;font-size:12px;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:700px;margin:0 auto}
+.card{border:1px solid rgba(0,255,255,0.2);border-radius:8px;padding:20px;text-align:center}
+.num{font-size:28px;font-weight:bold;text-shadow:0 0 15px currentColor}
+.lbl{color:#555;font-size:11px;margin-top:5px}
+.card.g{border-color:rgba(0,255,100,0.4);color:#00ff64}
+.card.y{border-color:rgba(255,200,0,0.4);color:#ffcc00}
+.card.b{border-color:rgba(0,136,255,0.4);color:#4488ff}
+.note{text-align:center;color:#333;font-size:11px;margin-top:25px}
+</style>
+</head>
+<body>
+<h1>📊 IT Monitor</h1>
+<div class="sub">PHP + SQLite | Apache :8083 | Example Layout</div>
+<div class="grid">
+  <div class="card g"><div class="num">42</div><div class="lbl">Services Up</div></div>
+  <div class="card y"><div class="num">3</div><div class="lbl">Warnings</div></div>
+  <div class="card b"><div class="num">99.9%</div><div class="lbl">Uptime</div></div>
+</div>
+<div class="note">⚠️ Example placeholder — real implementation uses PHP + SQLite backend</div>
+</body>
+</html>
