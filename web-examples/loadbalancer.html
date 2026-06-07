@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>⚖️ Load Balancer</title>
+<meta charset="utf-8">
+<style>
+body{background:#0a0a0a;color:#00ff88;font-family:'Courier New',monospace;padding:30px}
+h1{text-align:center;text-shadow:0 0 20px #00ff88;margin-bottom:5px}
+.sub{text-align:center;color:#555;font-size:12px;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:700px;margin:0 auto 20px}
+.card{border:1px solid rgba(0,255,136,0.2);border-radius:8px;padding:15px}
+.card h3{color:#00ff88;font-size:13px;margin-bottom:10px}
+.item{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid #ffffff0f}
+.stat{text-align:center}
+.num{font-size:26px;font-weight:bold;text-shadow:0 0 15px currentColor}
+.lbl{color:#555;font-size:11px}
+.ok{color:#00ff88}.warn{color:#ffcc00}
+.note{text-align:center;color:#333;font-size:11px;margin-top:15px}
+</style>
+</head>
+<body>
+<h1>⚖️ Load Balancer</h1>
+<div class="sub">Apache :8084 | Round Robin | PHP + HTML | Example Layout</div>
+<div class="grid">
+  <div class="card">
+    <h3>🖥️ Backends</h3>
+    <div class="item"><span>nginx:9999</span><span class="ok">UP</span></div>
+    <div class="item"><span>apache:8080</span><span class="ok">UP</span></div>
+    <div class="item"><span>apache:8082</span><span class="ok">UP</span></div>
+    <div class="item"><span>apache:8083</span><span class="ok">UP</span></div>
+  </div>
+  <div class="card stat"><div class="num ok">4</div><div class="lbl">Backends UP</div></div>
+  <div class="card stat"><div class="num warn">42ms</div><div class="lbl">Avg Latency</div></div>
+</div>
+<div class="note">⚠️ Example placeholder — real implementation uses PHP health checks</div>
+</body>
+</html>
