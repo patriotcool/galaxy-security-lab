@@ -78,14 +78,14 @@ Browser → security-alerts.html
 
 🚀 Attack Testing (OWASP Top 10)
 ```
-| Attack Vector | Detection | Action |
-|---|---|---|
-| SQL Injection (libinjection) | Rule 942100 | 403 Blocked |
-| XSS | Rule 941100 | 403 Blocked |
-| Path Traversal | Rule 930100 | 403 Blocked |
-| Scanner UA (sqlmap, Nikto) | Rule 913100 | 403 Blocked |
-| Command Injection | Rule 932100 | 403 Blocked |
-| Anomaly Score ≥ 5 | Rule 949110 | Phase 2 Block |
+| Attack Vector          | Detection                      | Action |
+
+| SQL Injection       (libinjection) | Rule 942100     | 403 Blocked |
+| XSS                 | Rule 941100                    | 403 Blocked |
+| Path Traversal      | Rule 930100                    | 403 Blocked |
+| Scanner UA          (sqlmap, Nikto) | Rule 913100    | 403 Blocked |
+| Command Injection   | Rule 932100                    | 403 Blocked |
+| Anomaly Score ≥ 5   | Rule 949110                    | Phase 2 Block |
 
 ```
 📁 Repository Structure
