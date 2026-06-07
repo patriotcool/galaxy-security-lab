@@ -53,16 +53,16 @@ OS 	Debian 13 trixie, OpenWrt
 
 
 🌐 Galaxy Web Stack
-
+```
 https://<host>/          → 🌐 System Hub
 https://<host>:8082/     → 🔐 SECURIT Lab
 https://<host>:8083/     → 📊 IT Monitor (PHP + SQLite)
 https://<host>:8084/     → ⚖️ Load Balancer Dashboard
 https://<host>:9443/galaxy/ → 🌌 Galaxy Control Center
-
+```
 
 Architecture:
-
+```
 Browser → Apache:443 (SSL frontend)
               ↓
          nginx:9999 (PHP-FPM backend)
@@ -74,7 +74,7 @@ Browser → security-alerts.html
         dmz-proxy/modsec-api.php
                ↓ parses
         /var/log/nginx/modsec_audit.log
-
+```
 
 🚀 Attack Testing (OWASP Top 10)
 ```
