@@ -1,9 +1,83 @@
-<!-- web-examples/index.html -->
 <!DOCTYPE html>
 <html>
-<head><title>Galaxy Security Lab</title></head>
-<body style="background:#0a0a0a;color:#00ffff;font-family:monospace;text-align:center;padding:50px">
+<head>
+<title>🌌 Galaxy Security Lab</title>
+<meta charset="utf-8">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#00ffff;font-family:'Courier New',monospace;padding:30px;min-height:100vh}
+h1{text-align:center;font-size:28px;text-shadow:0 0 30px #00ffff;margin-bottom:5px}
+.sub{text-align:center;color:#555;margin-bottom:30px;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:900px;margin:0 auto}
+.card{border:1px solid rgba(0,255,255,0.2);border-radius:8px;padding:20px;background:rgba(0,255,255,0.02)}
+.card h3{color:#00ffff;margin-bottom:12px;font-size:14px;border-bottom:1px solid rgba(0,255,255,0.1);padding-bottom:8px}
+pre{color:#888;font-size:11px;line-height:1.7;overflow-x:auto}
+.g{color:#00ff88}.y{color:#ffcc00}.r{color:#ff4444}.b{color:#4488ff}
+</style>
+</head>
+<body>
 <h1>🌌 Galaxy Security Lab</h1>
-<p>See README for full documentation</p>
+<div class="sub">nginx + Apache + ModSecurity | DMZ Architecture</div>
+<div class="grid">
+  <div class="card">
+    <h3>🔄 Reverse Proxy</h3>
+    <pre>Browser
+  ↓ :443 HTTPS
+Apache (Frontend)
+  SSLEngine on
+  ↓ :9999 internal
+nginx (PHP Backend)
+  fastcgi_pass php-fpm
+  ↓
+PHP-FPM</pre>
+  </div>
+  <div class="card">
+    <h3>🛡️ DMZ Flow</h3>
+    <pre>Internet
+  ↓
+pfSense (Firewall)
+  ├── mgmt-lan
+  ├── dmz
+  └── isolated-lan
+       ↓
+dmz-proxy
+  nginx + ModSecurity
+  OWASP CRS WAF
+       ↓
+Web Server
+  Apache + nginx + PHP</pre>
+  </div>
+  <div class="card">
+    <h3>⚙️ nginx Config</h3>
+    <pre>server {
+  listen 9999; # PHP backend
+  root /var/www/html;
+
+  location ~ \.php$ {
+    fastcgi_pass unix:
+      /run/php/php8.4-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME
+      $document_root$uri;
+    include fastcgi_params;
+  }
+}</pre>
+  </div>
+  <div class="card">
+    <h3>🔐 TLS Hardening</h3>
+    <pre># Apache:
+SSLEngine on
+SSLProtocol all -SSLv3 -TLSv1 -TLSv1.1
+SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384
+
+# Headers:
+HSTS max-age=63072000
+X-Frame-Options SAMEORIGIN
+X-Content-Type-Options nosniff
+
+# nginx:
+ssl_protocols TLSv1.2 TLSv1.3;
+server_tokens off;</pre>
+  </div>
+</div>
 </body>
 </html>
