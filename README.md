@@ -22,7 +22,7 @@ pfSense 2.8.1 (Firewall/Router)
       OWASP CRS WAF               PHP + PostgreSQL
               │
               ▼
-     Client / Jump Host
+     Client / Host
      Full Galaxy Web Stack
 ```
     ⚠️ IP ranges and hostnames anonymized for publication
